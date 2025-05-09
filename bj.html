@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Job Posting</title>
+    <link rel="stylesheet" href="style .css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+</head>
+
+<body>
+    
+<button class="btn btn-primary menu-toggle" id="menuBtn">Menu</button>
+
+<!-- Overlay -->
+<div id="overlay"></div>
+
+<!-- Sidebar -->
+<div id="sidebar">
+  <button class="btn btn-danger mb-3" id="closeBtn">Close</button>
+  <h4>Recording Sections</h4>
+  <button class="btn btn-success play-btn" id="playPauseBtn">▶ Play</button>
+</div>
+
+<script>
+  const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('overlay');
+  const menuBtn = document.getElementById('menuBtn');
+  const closeBtn = document.getElementById('closeBtn');
+  const playPauseBtn = document.getElementById('playPauseBtn');
+
+  menuBtn.addEventListener('click', () => {
+    sidebar.classList.add('active');
+    overlay.classList.add('active');
+  });
+
+  closeBtn.addEventListener('click', () => {
+    sidebar.classList.remove('active');
+    overlay.classList.remove('active');
+  });
+
+  overlay.addEventListener('click', () => {
+    sidebar.classList.remove('active');
+    overlay.classList.remove('active');
+  });
+
+  let isPlaying = false;
+  playPauseBtn.addEventListener('click', () => {
+    isPlaying = !isPlaying;
+    playPauseBtn.textContent = isPlaying ? '⏸ Pause' : '▶ Play';
+  });
+</script>
+
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">College Job Posting</h2>
+        <form id="jobPostForm">
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="state" class="form-label">State*</label>
+                    <select id="state" class="form-select">
+                        <option selected disabled>--Select State--</option>
+                        <option>Maharashtra</option>
+                        <option>Haryana</option>
+                        <option>Madhya Pradesh</option>
+                        <option>Assam</option>
+                        <option>Bihar</option>
+                        <option>Rajasthan</option>
+                        <option>Telangana</option>
+                        <option>Karnataka</option>
+                        <option>Uttarakhand</option>
+                        <option>Uttar Pradesh</option>
+                        <option>Punjab</option>
+                        <option> Gujarat-Ahemdabad</option>
+                        <OPtion>Jharkhand</OPtion>
+                        
+                        
+
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="college" class="form-label">College*</label>
+                    <select id="college" class="form-select">
+                        <option selected disabled>--Select College--</option>
+                    </select>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            const collegesByState = {
+                'Maharashtra': [
+                    'DV-PATIL PUNE',
+                    'VISION PUNE',
+                ],
+
+                'Haryana': [
+                    'Gateway Sonipat ',
+                    ' ST.drews Gurugram',
+                    'DPG DEGEREE COLLEGE',
+                    'sUSHANT UNIVERSITY',
+                    'RUSHISOOD -SONIPAT',
+                    'KR Mangalam Gurgaon',
+                    'ISBS-INTERNATIONAAL SCHOOL OF BUSINESS STUDIES LEADEERS',
+                    'JAGANNATH UNIVERSITY',
+
+                ],
+
+                'Madhya Pradesh': [
+                    'SAGE UNIVERSITY BHOPAL INDORE',
+                    'ORIENTAL  UNIVERSITY INDORE',
+                    'AKS  UNIVERSITY',
+                ],
+
+                
+                'Punjab': [
+                    'LPU  Lovely Professional University, Jalandhar',
+                ],
+
+                'Gujarat-Ahemdabad': [
+                    'Vidhyadeep',
+                    ' Rai UNIVERSIT - Ahmedabad',
+                    'Sigma - Vadodara',
+
+
+
+                ],
+
+                'Maharashtra': [
+                    'D.Y. Patil - Pune',
+                    'Vision - Pune',
+
+
+                ],
+                'Madhya Pradesh': [
+                    'SAGE - Bhopal/Indore',
+                    'Oriental - Indore',
+                    'AKS - indore',
+                ],
+                'assam':[
+                    'ADTU UNIVERSITY',
+
+            
+                ],
+                'Telangana':[
+                    'cheetainya deemed to be university',
+                ],
+                'Karnataka':[
+                    'lissa school of business studies',
+                    'IFIM GROUP OFF Institutions ',
+                    'Impact Group of Institutions',
+
+                ],
+                'Rajasthan':[
+                    'JECRC COLLEGE JAIPUR',
+                    'JNU',
+
+                ],
+                'Uttarakhand':[
+                    'Dev Bhoomi - Dehradun',
+                    'DIT - Dehradun',
+                    'COER - Roorkee',
+                    'Integral',
+                    ' GL Bajaj - Mathura',
+                    'MPRU - Kanpur',
+                ],
+                'Jharkhand':[
+                    'Rai University - Ranchi',
+
+                ],
+
+               
+
+
+
+
+
+
+
+
+
+
+
+
+            };
+
+            $('#state').change(function () {
+                const selectedState = $(this).val();
+                const colleges = collegesByState[selectedState] || [];
+
+                $('#college').empty().append('<option disabled selected>--Select College--</option>');
+                colleges.forEach(college => {
+                    $('#college').append(`<option>${college}</option>`);
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

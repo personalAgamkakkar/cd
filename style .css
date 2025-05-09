@@ -1,0 +1,42 @@
+#sidebar {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    background-color: #343a40;
+    color: white;
+    transition: left 0.3s ease;
+    padding: 1rem;
+    z-index: 1050;
+  }
+
+  #sidebar.active {
+    left: 0;
+  }
+
+  #overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+    z-index: 1040;
+  }
+
+  #overlay.active {
+    display: block;
+  }
+
+  .menu-toggle {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1060;
+  }
+
+  .play-btn {
+    font-size: 1.5rem;
+  }
