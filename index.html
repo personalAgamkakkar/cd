@@ -10,18 +10,88 @@
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
   body {
-    background: linear-gradient(135deg, #c3ecf7, #e0c3fc);
+    font-family: 'Inter', sans-serif;
+      height: 100vh;
+      display: flex;
+      /* flex-direction: column; */
+      /* justify-content: center; */
+      /* align-items: center; */
+      color: #fff;
+      text-align: center;
+      background: linear-gradient(-45deg,
+        #cf2df0 0%,
+        #0206f7 14%,
+        #a690d8 28%,
+        #3106f3 42%,
+        #d478f0 57%,
+        #1c04f5 71%,
+        #884fd3 85%,
+        #ff05de 100%
+      );
+      background-size: 600% 600%;
+      animation: gradientMove 30s ease infinite;
+      transition: background 0.5s ease, color 0.5s ease;
     font-family: 'Inter', sans-serif;
     min-height: 100vh;
     padding: 2rem;
-    color: #333;
+    
   }
+
+   @keyframes gradientMove {
+      0%   { background-position: 0% 50%; }
+      10%  { background-position: 20% 60%; }
+      20%  { background-position: 40% 70%; }
+      30%  { background-position: 60% 80%; }
+      40%  { background-position: 80% 90%; }
+      50%  { background-position: 100% 50%; }
+      60%  { background-position: 80% 10%; }
+      70%  { background-position: 60% 20%; }
+      80%  { background-position: 40% 30%; }
+      90%  { background-position: 20% 40%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .toggle-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      padding: 8px 18px;
+      border: none;
+      border-radius: 20px;
+      background-color: rgba(255, 255, 255, 0.2);
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .toggle-btn:hover {
+      background-color: rgba(22, 20, 20, 0.4);
+    }
+
+    body.dark-mode {
+      background: linear-gradient(-45deg,
+        #4d4c4c, #000000, #000000, #111010,
+        #000000, #292727, #000000, #807c7cc4
+        
+      );
+      color: #f0f0f0;
+    }
+
+     body.dark-mode .content {
+      background: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
+    }
+
+    body.dark-mode .toggle-btn {
+      background-color: rgba(255, 255, 255, 0.2);
+      color: #fff;
+    }
 
   h2 {
     font-weight: 700;
-    color: #0d6efd;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-    animation: fadeInDown 1s ease-in-out;
+    color: #3305ff;
+    text-shadow: 0 2px 8px rgb(189, 47, 255);
+    animation: fadeInDown 2s ease-in-out;
   }
 
   .form-label {
@@ -60,7 +130,7 @@
 
   .card h4 {
     font-weight: 600;
-    color: #0d6efd;
+    color: #cd0dfd;
   }
 
   .btn-outline-primary, .btn-primary {
@@ -98,8 +168,9 @@
 
 </head>
 <body>
+  <button class="toggle-btn" onclick="toggleDarkMode()">Toggle Dark Mode</button>
   <div class="container mt-5">
-    <h2 class="text-center mb-4">College Job Posting</h2>
+    <h2 class="text-center mb-4">Bapp ko karo parnam y hai website ka name   </h2>
     
     <div class="row mb-4">
       <div class="col-md-6">
@@ -120,6 +191,9 @@
   </div>
 
   <script>
+     function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
     document.addEventListener('DOMContentLoaded', function () {
 const sheetUrl = 'https://docs.google.com/spreadsheets/d/1y8qyF7QlAIHywHMqydomc2VuKM6fEEFuBJSW6Fz81gA/export?format=csv';
 
